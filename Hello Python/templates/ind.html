@@ -1,0 +1,35 @@
+
+
+{% block content %}
+<h1>{% block title %}  Список хороших людей{% endblock %}</h1>
+    {% for kid in kids %}
+
+<div>
+    <h2>{{kid['surname']}}</h2>
+    <h2 class="tab">{{kid['name']}}</h2>
+    <h2 class="tab">{{kid['points']}}</h2>
+    <br>
+</div>
+    <style>
+        div {
+            display: flex;
+            align-items: column;
+        }
+
+        .tab {
+            margin-left: 1%;
+        }
+    </style>
+    {% endfor %}
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title"
+               placeholder="Post title" class="form-control"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">+100</button>
+    </div>
+</form>
+    {% endblock %}
