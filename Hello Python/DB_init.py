@@ -9,6 +9,9 @@ with open('dbkids.sql') as db:
 curs = connection.cursor()
 
 
+connection.execute('INSERT INTO Boss ( hp,name,modelid) VALUES ("dodik",10000,01)')
+
+
 connection.commit()
 connection.close()
 

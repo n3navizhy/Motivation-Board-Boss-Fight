@@ -1,9 +1,15 @@
 DROP TABLE  IF EXISTS kids;
 
 
+
+
 CREATE TABLE kids(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	points INTEGER ,
+	points INTEGER,
 	name TEXT NOT NULL,
 	surname TEXT NOT NULL
 );
+
+
+
+
