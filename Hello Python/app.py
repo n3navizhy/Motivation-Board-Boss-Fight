@@ -50,11 +50,18 @@ def create():
 
 def point(name,points):
     conn = get_db_connection()
-    conn.execute('UPDATE kids SET points = points + 100 WHERE name = ?',
-                 (name,))
+    conn.execute('UPDATE kids SET points = points + 100  WHERE name = ?',(name,))
+    cursor = conn.cursor()
+    cursor.execute('SELECT name FROM kids WHERE name = ?',(name,))
+    try:
+        result = cursor.fetchone()[0]
+        if result == name:
+            boss.hp -=100
+    except BaseException:
+        print('name is not exist')
     conn.commit()
     conn.close()
-    boss.hp -=100
+    
     return redirect(url_for('index'))
 
 
