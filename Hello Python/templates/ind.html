@@ -1,37 +1,62 @@
 {% block content %}
-<head></head>
-<div class="hui">
-    <h1>{{boss}}</h1>
-
-
-    {% for kid in kids %}
-    <div class="penis">
-        <h2>{{kid['surname']}}</h2>
-        <h2 class="tab">{{kid['name']}}</h2>
-        <h2 class="tab">{{kid['points']}}</h2>
-        <br>
+ <html lang="ru">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Босс</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <div class="bossImage">
+        <img width ="100%" src="https://sun9-87.userapi.com/impf/c845217/v845217490/13bde0/MIZ3uoR3QSo.jpg?size=1280x853&quality=96&sign=66f3f492ebc54dfaa7a3c9ed59cf5aae&type=album">
+        <h1>Nikita  {{boss}}</h1>  
+        <form method="post">
+            <label for="title">Начислить очки</label>
+                <div class="form-group row">
+                <div class="col-md-8">
+                <input type="text" name="title" placeholder="Имя ребенка" class="form-control" value="{{ request.form['title'] }}"></input></div>
+                <div class="col-md-4"> <button type="submit" class="btn btn-primary">+100</button></div>
+            </div>
+        </form>
     </div>
-    {% endfor %}
 
-    <form method="post">
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title"
-                   placeholder="Post title" class="form-control"
-                   value="{{ request.form['title'] }}"></input>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">+100</button>
-        </div>
-    </form>
-</div>
-
+    <div class="leaderTable">
+          <table>
+              <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Опыт</th>
+              </tr>
+            {% for kid in kids %}
+                <tr>
+                    <td>{{kid['surname']}}</td>
+                    <td>{{kid['name']}}</td>
+                    <td>{{kid['points']}}</td>
+                </tr>
+            {% endfor %}
+         </table>
+    </div>
+</body>
 <style>
-    body {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
+    body
+    {
+        color: #2b255c;
+        margin-top: 2%;
+        font-family: 'Roboto Mono', monospace;
+        width: 80%;
+        margin-left: 10%;
+    }
+    .btn-primary
+    {
+       background-color: #2b255c;
+    }
+    .bossImage
+    {
+        width: 60%;
+        float:left;
     }
     .penis {
         display: flex;
@@ -42,16 +67,31 @@
         margin-left: 1%;
     }
 
-    .hui {
-        position: absolute;
-        width: 1026px;
-        height: 588px;
-        background: #98CFEE;
-        border: 1px solid #D73A3A;
+    .leaderTable {
+        padding: 1%;
+        position: relative;
+        width: 38%;
+        height: 80%;
+        float: right;
+        background: #2b255c;
+        border-radius: 5%;
+        
+    }
+    table
+    {
+        color: #fffcf7;
+        font-size: 22px;
+         width: 100%;
+    }
+    tr
+    {   
+        border: 1px;
+       border-bottom-style: 1px solid #fffcf7;
+    }
+    img
+    {
+           border-radius: 5%;
     }
 </style>
-
-
-
-
+</html>
 {% endblock %}
