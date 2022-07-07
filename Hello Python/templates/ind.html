@@ -21,6 +21,7 @@
                 <div class="col-md-4"> <button type="submit" class="btn btn-primary">+100</button></div>
             </div>
         </form>
+
     </div>
 
     <div class="leaderTable">
@@ -38,7 +39,9 @@
                 </tr>
             {% endfor %}
          </table>
+        <form action="http://localhost:4449/create"><button class="btn btn-primary btnAdd">Добавить ребенка</button></form>
     </div>
+      
 </body>
 <style>
     body
@@ -52,6 +55,17 @@
     .btn-primary
     {
        background-color: #2b255c;
+    }
+    .btnAdd
+    {
+        margin-left: 54%;
+        margin-top: 3%;
+        background-color: #fdc85f;
+    }
+    .btnAdd:hover
+    {
+        
+       background-color: #eb5261;
     }
     .bossImage
     {
